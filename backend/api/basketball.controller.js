@@ -1,3 +1,7 @@
+//Jeremy Granizo
+//02/29/2024 IT302-002
+//Phase 2 Assignment
+//jag254@njit.edu
 import BasketballsDAO from "../dao/basketballsDAO.js";
 export default class BasketballsController{
     

@@ -1,4 +1,7 @@
-
+//Jeremy Granizo
+//02/29/2024 IT302-002
+//Phase 2 Assignment
+//jag254@njit.edu
 let teams
 export default class BasketballsDAO{
     static async injectDB(conn){
