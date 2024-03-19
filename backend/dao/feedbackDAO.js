@@ -1,3 +1,7 @@
+//Jeremy Granizo
+//03/19/2024 IT302-002
+//Phase 3 Assignment
+//jag254@njit.edu
 import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectId
 
