@@ -2,6 +2,8 @@
 //02/29/2024 IT302-002
 //Phase 2 Assignment
 //jag254@njit.edu
+import mongodb from "mongodb"
+
 let teams
 export default class BasketballsDAO{
     static async injectDB(conn){
@@ -9,7 +11,7 @@ export default class BasketballsDAO{
             return
         }
     try{
-        teams= await conn.db(process.env.Basketball_NS).collection('basketball_jag254')
+        teams= await conn.db(process.env.BASKETBALL_NS).collection('basketball_jag254')
         
     }
     catch(e){
