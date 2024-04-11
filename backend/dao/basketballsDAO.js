@@ -1,8 +1,9 @@
 //Jeremy Granizo
-//03/19/2024 IT302-002
-//Phase 3 Assignment
+//04/11/2024 IT302-002
+//Phase 4 Assignment
 //jag254@njit.edu
 import mongodb from "mongodb"
+const ObjectId = mongodb.ObjectId
 
 let teams
 export default class BasketballsDAO{
@@ -26,7 +27,7 @@ export default class BasketballsDAO{
     static async getTeams({
         filters = null,
         pageNumber = 0,
-        itemsPerPage = 10,
+        itemsPerPage = 30,
         } = {}) {
           let query
           if(filters) {
@@ -56,6 +57,31 @@ export default class BasketballsDAO{
         }
       }
    
+
+
+      static async getTeamById(id){
+        try {
+          return await teams.aggregate([
+            {
+              $match: {
+                _id: new ObjectId(id),
+              }
+            },
+            {$lookup:
+            {
+              from: 'feedback',
+              localField:'_id',
+              foreignField:'team_id',
+              as: "feedback"
+
+            }}
+          ]).next()
+        }
+        catch(e){
+          console.error(`something went wrong in getTeamById: ${e}`)
+          throw e
+        }
+      }
     
 
 }
