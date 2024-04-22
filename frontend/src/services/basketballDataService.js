@@ -1,6 +1,6 @@
 //Jeremy Granizo
-//04/11/2024 IT302-002
-//Phase 4 Assignment
+//04/22/2024 IT302-002
+//Phase 5 Assignment
 //jag254@njit.edu
 import axios from "axios";
 class BasketballDataService {
@@ -20,6 +20,18 @@ class BasketballDataService {
             `${process.env.REACT_APP_BACKEND_URL}/api/v1/jag254/basketballs/id/${id}`
           )
      }   
+     createFeedback(data){
+      return axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/jag254/basketballs/feedback`,data)
+     }
+     updateFeedback(data){
+      return axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/jag254/basketballs/feedback`,data)
+     }
+     deleteFeedback(id,userId){
+      return axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/jag254/basketballs/feedback`,
+      {data:{feedback_id: id, user_id: userId } }
+    )
+     }
     }
 
     export default new BasketballDataService();
